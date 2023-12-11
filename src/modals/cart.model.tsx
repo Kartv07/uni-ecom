@@ -3,9 +3,9 @@ import mongoose from "mongoose"
 const cartSchema = new mongoose.Schema({
     // The user field will corresponds to user data model for now i am keeping it a normal field.
     userId : {
-        type : String,
-        required : true,
-        default : "usr000"
+        type : mongoose.Schema.Types.ObjectId,
+        ref : "User",
+        required : true
     },
     itemsData : [{
         itemId : {
