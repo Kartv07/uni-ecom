@@ -15,7 +15,7 @@ export const POST = async (req: any) => {
             disCountCpn: ""
         })
         await newUser.save();
-        return NextResponse.json({ msg: "User added successfully !" }, { status: 201 });
+        return NextResponse.json({ msg: "User added successfully !"}, { status: 201 });
     } catch (error) {
         return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
     }
