@@ -3,7 +3,7 @@ import Cart from "@/modals/cart.model";
 import { NextResponse } from "next/server";
 import Item from "@/modals/items.model";
 import User from "@/modals/user.model";
-import PurchaseHistory from "@/modals/purchasedHistory";
+import PurchaseHistory from "@/modals/purchasedHistory.model";
 
 export const POST = async (req: any) => {
   await connectDB();
