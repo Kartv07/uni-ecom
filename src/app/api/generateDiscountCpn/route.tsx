@@ -11,14 +11,14 @@ export const POST = async (req: any) => {
 
         if (userDetails) {
             const orderCount = userDetails.orderCount;
-            const nthOrder = 2; // Let us say user will get 10% discount after completing 2 orders cycle.
-            if(orderCount % nthOrder === 0){
-                const discountCpn = v4();
+            const nthOrder = 2; // Let us say user will get 10% discount for every 2 orders cycle.
+            if((orderCount + 1) % nthOrder === 0){
+                const disCountCpn = v4();
                 const updateUser = await User.updateOne(
                     { _id: userId }, 
-                    { $set: { discountCpn: discountCpn } }
+                    { $set: { disCountCpn: disCountCpn } }
                   );
-                return NextResponse.json({msg : "Discount Coupon generated Successfully !"}, {status : 201});                  
+                return NextResponse.json({msg : "Discount Coupon generated Successfully !", coupon : disCountCpn}, {status : 201});                  
             }
             return NextResponse.json({msg : "Coupon Not available !"}, {status : 400})
 
