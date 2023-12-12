@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import axios from "axios"
-
-export default function Home() {
+import Home from '@/components/Home'
+export default function App() {
   return (
-   <div >Hello World !</div>
+   <Home />
   )
 }
