@@ -10,7 +10,7 @@ Welcome to our E-Commerce site! This platform allows users to browse items, add 
 - Add items to the cart
 - Modify item quantities in the cart
 - Apply coupon codes for discounts
-- Automatic 10% discount on every nth order {here n=2)
+- Automatic 10% discount on every nth order {here n=2}
 
 ### Admin Functionalities
 
