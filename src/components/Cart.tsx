@@ -33,7 +33,7 @@ const Cart = () => {
             console.log(response);
             setFindCoupon(true);
             if (response.status === 200) {
-                toast.error("Coupon Not Available !");
+                toast.error("Coupon Code Not Available !");
             }
             else if (response.status === 201) {
                 toast.success("Congratulation you get a Coupon Code");
