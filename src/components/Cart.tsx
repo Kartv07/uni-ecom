@@ -30,7 +30,6 @@ const Cart = () => {
             const response = await axios.post("/api/generateDiscountCpn", {
                 userId: "65775cc555a472c7f4988746"
             });
-            console.log(response);
             setFindCoupon(true);
             if (response.status === 200) {
                 toast.error("Coupon Code Not Available !");
@@ -70,9 +69,9 @@ const Cart = () => {
             const response = await axios.get("/api/cart/get", {
                 params: { userId: "65775cc555a472c7f4988746" }
             });
-            console.log(response);
+
             if (response.status === 202) {
-                console.log(response.data);
+
                 setCartItems(response.data.itemsData);
             }
         } catch (error) {

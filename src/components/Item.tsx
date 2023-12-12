@@ -20,7 +20,6 @@ const Item = (props: Props) => {
                     userId : "65775cc555a472c7f4988746",
                     itemId : props.itemId
                 })
-                console.log(response);
                 if(response.status === 200){
                     setIsAdd(true);
                 }

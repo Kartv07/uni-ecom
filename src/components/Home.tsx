@@ -21,7 +21,7 @@ const Home = () => {
         const handleFindItems = async () => {
             try {
                 const response = await axios.get("/api/items/getAll");
-                console.log(response);
+             
                 if (response.status === 200) {
                     setAllItems(response.data);
                 }
