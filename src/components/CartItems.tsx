@@ -23,8 +23,8 @@ const CartItems = (props: Props) => {
                 })
 
                 if (response.status === 202) {
+                    // setItemQuantity(qty);
                     props.handleCartDetails();
-                    setItemQuantity(qty);
                 }
             } catch (error) {
 
@@ -39,8 +39,9 @@ const CartItems = (props: Props) => {
                 })
 
                 if (response.status === 202) {
-                    props.handleCartDetails();
                     setItemQuantity(qty);
+                    props.handleCartDetails();
+                  
                 }
             } catch (error) {
 
