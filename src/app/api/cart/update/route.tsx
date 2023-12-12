@@ -15,6 +15,6 @@ export const PUT = async (req: any) => {
         }
         return NextResponse.json({ msg: "Item Updated !" }, { status: 202 });
     } catch (error) {
-        return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
+        return NextResponse.json({ err: "Error while updating cart item." }, { status: 500 })
     }
 }

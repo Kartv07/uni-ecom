@@ -8,6 +8,6 @@ export const GET = async (req: any) => {
         const findItem = await item.find();
         return NextResponse.json(findItem, { status: 200 });
     } catch (error) {
-        return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
+        return NextResponse.json({ err: "Error while fetching item." }, { status: 500 })
     }
 }

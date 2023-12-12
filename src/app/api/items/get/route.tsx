@@ -17,6 +17,6 @@ export const POST = async (req: any) => {
 
         return NextResponse.json({msg : "Cart Doesn't Exist"}, {status : 404});
     } catch (error) {
-        return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
+        return NextResponse.json({ err: "Error while fetching item." }, { status: 500 })
     }
 }

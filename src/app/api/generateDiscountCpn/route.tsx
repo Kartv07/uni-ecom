@@ -20,7 +20,7 @@ export const POST = async (req: any) => {
                   );
                 return NextResponse.json({msg : "Discount Coupon generated Successfully !", coupon : disCountCpn}, {status : 201});                  
             }
-            return NextResponse.json({msg : "Coupon Not available !"}, {status : 200})
+            return NextResponse.json({msg : "Coupon Code Not available !"}, {status : 200})
 
         } else {
             return NextResponse.json({msg : "Invalid User or User doesn't exitst !"}, {status : 404});

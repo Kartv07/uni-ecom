@@ -91,16 +91,19 @@ const Cart = () => {
                     <button className="cursor-pointer" onClick={() => router.push("/")}>{`<--`}</button>
                     <div className="text-lg font-medium">Your Cart</div>
                 </div>
-                {cartItems?.map((item, index) => {
-                    return <CartItems key={index} itemName={item.itemId.itemName} itemDescription={item.itemId.itemDescription}
-                        itemId={item.itemId._id} itemPrice={item.itemId.itemPrice} itemQuantity={item.itemQuantity} handleCartDetails={handleCartDetails} />
-                })}
-                {!findCoupon &&
-                    <div className="items-center justify-end flex">Apply Coupon Code ?  <button className="px-4 ml-4 py-2 rounded-md text-white font-normal bg-teal-400" onClick={handleGenerate}> Generate a coupon code</button></div>}
-                {findCoupon && coupon && <div className="justify-end ml-auto items-end flex text-teal-400 font-medium leading-5 border border-[#DADADA] rounded-md w-fit px-4 py-2">Coupon Code Applied</div>}
-                {findCoupon && !coupon && <div className="justify-end ml-auto items-end flex text-red-500 font-medium leading-5 border border-[#DADADA] rounded-md w-fit px-4 py-2">Coupon Code Not Available</div>}
+                {!cartItems ? <div className="text-2xl mx-auto leading-6 -mt-2 text-teal-400 font-medium p-4 border-[#DADADA] border rounded-lg">No Items Added</div> :
+                    <>
+                        {cartItems?.map((item, index) => {
+                            return <CartItems key={index} itemName={item.itemId.itemName} itemDescription={item.itemId.itemDescription}
+                                itemId={item.itemId._id} itemPrice={item.itemId.itemPrice} itemQuantity={item.itemQuantity} handleCartDetails={handleCartDetails} />
+                        })}
+                        {!findCoupon &&
+                            <div className="items-center justify-end flex">Apply Coupon Code ?  <button className="px-4 ml-4 py-2 rounded-md text-white font-normal bg-teal-400" onClick={handleGenerate}> Generate a coupon code</button></div>}
+                        {findCoupon && coupon && <div className="justify-end ml-auto items-end flex text-teal-400 font-medium leading-5 border border-[#DADADA] rounded-md w-fit px-4 py-2">Coupon Code Applied</div>}
+                        {findCoupon && !coupon && <div className="justify-end ml-auto items-end flex text-red-500 font-medium leading-5 border border-[#DADADA] rounded-md w-fit px-4 py-2">Coupon Code Not Available</div>}
+                    </>}
             </div>
-            <div className="p-4 my-4 flex flex-col gap-4 rounded-md shadow-md">
+           {cartItems &&  <div className="p-4 my-4 flex flex-col gap-4 rounded-md shadow-md">
                 <div className="items-center justify-end flex"><button className="px-4 ml-4 py-2 rounded-md text-white font-normal bg-teal-400" onClick={handleCheckout}> Proceed To Checkout</button></div>
                 {isCheckOut &&
                     <div className="items-end px-2 text-right justify-end flex flex-col gap-2">
@@ -108,7 +111,7 @@ const Cart = () => {
                         <div>Discount : {discount} ₹</div>
                         <div>Total : {finalPrice} ₹</div>
                     </div>}
-            </div>
+            </div>}
         </>
 
     )

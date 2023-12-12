@@ -16,6 +16,6 @@ export const DELETE = async (req: any) => {
         }
         return NextResponse.json({ msg: "Item Deleted !" }, { status: 202 });
     } catch (error) {
-        return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
+        return NextResponse.json({ err: "Error while deleting item." }, { status: 500 })
     }
 }

@@ -17,6 +17,6 @@ export const POST = async (req: any) => {
         await newUser.save();
         return NextResponse.json({ msg: "User added successfully !"}, { status: 201 });
     } catch (error) {
-        return NextResponse.json({ err: "Error while adding item." }, { status: 500 })
+        return NextResponse.json({ err: "Error while adding user." }, { status: 500 })
     }
 }
