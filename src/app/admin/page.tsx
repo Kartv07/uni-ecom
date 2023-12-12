@@ -46,8 +46,6 @@ const admin = () => {
                 <div className="flex flex-wrap gap-4">
                 {user?.discountCoupon.map((cpn,index)=>(<>
                     <div key={index} className="text-sm p-2 bg-gray-100 rounded-md text-left">{cpn}</div>
-                    <div key={index} className="text-sm p-2 bg-gray-100 rounded-md text-left">{cpn}</div>
-                    <div key={index} className="text-sm p-2 bg-gray-100 rounded-md text-left">{cpn}</div>
                     </>
                 ))}
                 </div>
