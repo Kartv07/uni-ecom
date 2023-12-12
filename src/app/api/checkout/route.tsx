@@ -66,6 +66,7 @@ export const POST = async (req: any) => {
 
         await newPurchase.save();
       }
+      await Cart.deleteOne({userId : userId});
       if (userDetails.disCountCpn == disCountCpn && disCountCpn != "") {
         let discountPrice = finalPrice * 10;
         discountPrice = discountPrice / 100;
@@ -85,6 +86,7 @@ export const POST = async (req: any) => {
             discountCoupon: couponCodes
           }
         })
+
         return NextResponse.json({ msg: "Congratulation you get 10% off.", totalPrice: totalPrice, finalPrice: finalPrice }, { status: 202 });
       }
       return NextResponse.json({ msg: "Your Coupon code is invalid", totalPrice: totalPrice, finalPrice: finalPrice }, { status: 202 });

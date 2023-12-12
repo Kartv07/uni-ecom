@@ -9,7 +9,7 @@ export const POST = async (req: any) => {
         const existingCart = await Cart.findOne({ userId: userId });
 
         if (existingCart) {
-            const foundItem = existingCart.itemsData.findIndex(item => item.itemId.equals(itemId));
+            const foundItem = existingCart.itemsData.findIndex((item:any) => item.itemId.equals(itemId));
 
             if (foundItem !== -1) {
                 existingCart.itemsData[foundItem].itemQuantity += quantity;

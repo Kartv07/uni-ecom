@@ -3,23 +3,26 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Item from "./Item";
+import { TbShoppingCartPlus } from "react-icons/tb";
+import { useRouter } from "next/navigation";
 
-interface itemStructure  {
-    _id : any;
-    itemName : String;
-    itemDescription : String;
-    itemPrice : Number;
+interface itemStructure {
+    _id: any;
+    itemName: String;
+    itemDescription: String;
+    itemPrice: number;
 }
 
-const Home = () =>{
+const Home = () => {
     const [allItems, setAllItems] = useState<itemStructure[]>();
+    const router = useRouter();
     // Finding the items
-    useEffect(()=>{
-        const handleFindItems = async () =>{
+    useEffect(() => {
+        const handleFindItems = async () => {
             try {
                 const response = await axios.get("/api/items/getAll");
                 console.log(response);
-                if(response.status === 200){
+                if (response.status === 200) {
                     setAllItems(response.data);
                 }
             } catch (error) {
@@ -27,20 +30,21 @@ const Home = () =>{
             }
         }
         handleFindItems();
-    },[])
-    
+    }, [])
+
     return (
-        <div className="max-w-5xl mx-auto ">
-            <div className="bg-teal-400 px-4 my-8 text-2xl leading-6 text-white font-medium py-8 rounded-md">
-                Uni-B : An E-Commerce Platform
-            </div>
-            <div className=" p-4 flex flex-col gap-4 rounded-md shadow-md"> 
-                <div className="text-lg font-medium">
-                    All Items
+        <div className="mx-auto ">
+            <div className=" p-4 flex flex-col gap-4 rounded-md shadow-md">
+                <div className="flex justify-between">
+                    <div className="text-lg font-medium">All Items</div>
+                    <div onClick={(e)=>router.push("/cart")} className="flex text-sm p-2 cursor-pointer hover:bg-teal-100 hover:rounded-md gap-1">
+                    <TbShoppingCartPlus size={20} /> Cart
+                    </div>
                 </div>
-                <div>
-                    {allItems?.map((item, index)=>(
-                        <Item key={index} itemName = {item.itemName} itemDes = {item.itemDescription} itemPrice={item.itemPrice}/>
+
+                <div className="flex flex-col gap-2">
+                    {allItems?.map((item, index) => (
+                        <Item key={index} itemName={item.itemName} itemDes={item.itemDescription} itemPrice={item.itemPrice} itemId={item._id} />
                     ))}
                 </div>
             </div>

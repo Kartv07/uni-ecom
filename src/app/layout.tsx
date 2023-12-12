@@ -16,7 +16,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
+      <body className={inter.className}>
+        <div className='max-w-5xl mx-auto'>
+          <div className="bg-teal-400 px-4 my-8 text-2xl leading-6 text-white font-medium py-8 rounded-md">
+            Uni-B : An E-Commerce Platform
+          </div>
+          {children}
+        </div>
+      </body>
+    </html >
   )
 }
