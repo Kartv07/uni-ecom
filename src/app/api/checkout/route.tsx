@@ -89,7 +89,7 @@ export const POST = async (req: any) => {
 
         return NextResponse.json({ msg: "Congratulation you get 10% off.", totalPrice: totalPrice, finalPrice: finalPrice }, { status: 202 });
       }
-      return NextResponse.json({ msg: "Your Coupon code is invalid", totalPrice: totalPrice, finalPrice: finalPrice }, { status: 202 });
+      return NextResponse.json({ msg: "Your Coupon code is invalid", totalPrice: totalPrice, finalPrice: finalPrice }, { status: 200 });
 
     } else {
       return NextResponse.json({ msg: "Cart doesn't Exist !" }, { status: 404 });
