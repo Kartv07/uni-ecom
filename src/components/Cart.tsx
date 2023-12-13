@@ -73,6 +73,8 @@ const Cart = () => {
             }
         }
         handleFindItems();
+        handleCartDetails();
+
     }, [])
 
     const handleCartDetails = async () => {
@@ -89,11 +91,6 @@ const Cart = () => {
             console.log("Error finding the cart details !");
         }
     }
-
-    useEffect(() => {
-        handleCartDetails();
-    }, [])
-
 
     return (
         <>
