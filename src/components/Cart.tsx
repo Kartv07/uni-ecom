@@ -82,6 +82,18 @@ const Cart = () => {
     useEffect(() => {
         handleCartDetails();
     }, [])
+
+    const handleFetchUser = async () => {
+        try {
+            const response = await axios.get("/api/admin/getPurchaseHistory", {
+                params: { userId: "65775cc555a472c7f4988746" }
+            })
+        } catch (error) {
+            console.log("Error while adding users !")
+        }
+    }
+
+    handleFetchUser();
     return (
         <>
             <div className="p-4 flex flex-col gap-4 rounded-md shadow-md">
