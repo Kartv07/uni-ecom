@@ -112,7 +112,7 @@ const Cart = () => {
                         {findCoupon && !coupon && <div className="justify-end ml-auto items-end flex text-red-500 font-medium leading-5 border border-[#DADADA] rounded-md w-fit px-4 py-2">Coupon Code Not Available</div>}
                     </>}
             </div>
-           {cartItems &&  <div className="p-4 my-4 flex flex-col gap-4 rounded-md shadow-md">
+           {cartItems && cartItems?.length > 0 &&  <div className="p-4 my-4 flex flex-col gap-4 rounded-md shadow-md">
                 <div className="items-center justify-end flex"><button className="px-4 ml-4 py-2 rounded-md text-white font-normal bg-teal-400" onClick={handleCheckout}> Proceed To Checkout</button></div>
                 {isCheckOut &&
                     <div className="items-end px-2 text-right justify-end flex flex-col gap-2">
