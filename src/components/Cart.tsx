@@ -100,7 +100,7 @@ const Cart = () => {
                     <button className="cursor-pointer" onClick={() => router.push("/")}>{`<--`}</button>
                     <div className="text-lg font-medium">Your Cart</div>
                 </div>
-                {!cartItems ? <div className="text-2xl mx-auto leading-6 -mt-2 text-teal-400 font-medium p-4 border-[#DADADA] border rounded-lg">No Items Added</div> :
+                {cartItems?.length == 0 ? <div className="text-2xl mx-auto leading-6 -mt-2 text-teal-400 font-medium p-4 border-[#DADADA] border rounded-lg">No Items Added</div> :
                     <>
                         {cartItems?.map((item, index) => {
                             return <CartItems key={index} itemName={item.itemId.itemName} itemDescription={item.itemId.itemDescription}
