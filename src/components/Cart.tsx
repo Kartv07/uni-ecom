@@ -64,19 +64,6 @@ const Cart = () => {
         }
     }
 
-    useEffect(() => {
-        const handleFindItems = async () => {
-            try {
-                const response = await axios.get("/api/items/getAll");
-            } catch (error) {
-                console.log("Error while fetch item details !");
-            }
-        }
-        handleFindItems();
-        handleCartDetails();
-
-    }, [])
-
     const handleCartDetails = async () => {
         try {
             const response = await axios.get("/api/cart/get", {
@@ -91,6 +78,20 @@ const Cart = () => {
             console.log("Error finding the cart details !");
         }
     }
+
+    useEffect(() => {
+        const handleFindItems = async () => {
+            try {
+                const response = await axios.get("/api/items/getAll");
+                handleCartDetails();
+            } catch (error) {
+                console.log("Error while fetch item details !");
+            }
+        }
+        handleFindItems();
+    }, [])
+
+
 
     return (
         <>
